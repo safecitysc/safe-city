@@ -95,8 +95,6 @@
             color: #666;
         }
 
-        /* AVISO CURTO NO COMEÇO */
-
         .intro-notice {
             margin-top: 22px;
             max-width: 570px;
@@ -210,8 +208,6 @@
             line-height: 1.7;
         }
 
-        /* AVISO COMPLETO NO FINAL */
-
         .notice {
             margin-top: 45px;
             padding: 25px;
@@ -299,13 +295,12 @@
 
         <div class="status">
             <div class="status-dot"></div>
-            Serviço de localização
+            Projeto em desenvolvimento
         </div>
 
     </div>
 
 </header>
-
 
 <main>
 
@@ -317,12 +312,10 @@
         </h1>
 
         <p>
-            O Safe City ajuda você a encontrar
-            abrigos e pontos de apoio próximos
-            usando sua localização atual.
+            O Safe City é um projeto em desenvolvimento
+            criado para facilitar a localização de possíveis
+            pontos de apoio e abrigos próximos.
         </p>
-
-        <!-- AVISO CURTO -->
 
         <div class="intro-notice">
             ⚠️ <strong>Antes de usar:</strong>
@@ -340,13 +333,13 @@
         </div>
 
         <h2>
-            Encontrar um abrigo
+            Pesquisar pontos próximos
         </h2>
 
         <p>
-            Permita o acesso à sua localização
-            para procurar abrigos próximos
-            da sua região.
+            Permita o acesso à sua localização para abrir
+            uma pesquisa de possíveis pontos de apoio
+            próximos no Google Maps.
         </p>
 
         <button onclick="encontrarAbrigos()">
@@ -371,8 +364,8 @@
             </h3>
 
             <p>
-                A localização é usada apenas
-                para realizar a busca.
+                A localização é utilizada pelo navegador
+                para realizar a busca solicitada.
             </p>
 
         </div>
@@ -389,8 +382,8 @@
             </h3>
 
             <p>
-                Procure pontos de apoio
-                próximos da sua região.
+                A ferramenta utiliza uma pesquisa externa
+                baseada na sua localização.
             </p>
 
         </div>
@@ -403,12 +396,12 @@
             </div>
 
             <h3>
-                Solidariedade
+                Projeto em desenvolvimento
             </h3>
 
             <p>
-                Informação para facilitar
-                o acesso à ajuda.
+                A versão atual é experimental e ainda
+                não possui uma base oficial de abrigos.
             </p>
 
         </div>
@@ -423,17 +416,21 @@
         </h2>
 
         <p>
-            Você permite sua localização,
-            o Safe City identifica sua região
-            e abre uma busca por abrigos próximos.
-            Antes de se deslocar, confira as
-            informações disponíveis sobre o local.
+            Ao permitir sua localização, o navegador informa
+            sua posição ao Safe City. A versão atual utiliza
+            essa posição para abrir uma pesquisa externa no
+            Google Maps.
+        </p>
+
+        <p style="margin-top: 15px;">
+            Os resultados exibidos pelo mapa podem incluir
+            estabelecimentos ou locais que não sejam abrigos
+            de emergência. Sempre confira as informações
+            antes de tomar qualquer decisão.
         </p>
 
     </section>
 
-
-    <!-- AVISO IMPORTANTE -->
 
     <section class="notice">
 
@@ -442,48 +439,66 @@
             <span>⚠️</span>
 
             <strong>
-                Aviso importante
+                Aviso importante — leia antes de usar
             </strong>
 
         </div>
 
         <p>
-            Este site é um
-            <strong>projeto novo, atualmente em desenvolvimento
-            e em fase de testes</strong>.
-            As informações e localizações apresentadas
-            podem sofrer alterações, imprecisões ou
-            indisponibilidade.
+            Este é um
+            <strong>
+                projeto novo, atualmente em desenvolvimento
+                e em fase de testes
+            </strong>.
+            A versão atual não possui uma base oficial
+            de abrigos da Defesa Civil de Santa Catarina.
+        </p>
+
+        <p>
+            A localização apresentada pelo mapa é obtida
+            através de uma
+            <strong>
+                plataforma externa de mapas
+            </strong>.
+            Os resultados podem estar incorretos,
+            desatualizados ou não representar abrigos
+            de emergência.
         </p>
 
         <p>
             <strong>
-                Em situações de emergência, siga sempre
-                as orientações das autoridades competentes
+                O Safe City não confirma, certifica ou garante
+                que os locais apresentados pelo mapa sejam
+                abrigos oficiais.
+            </strong>
+        </p>
+
+        <p>
+            Em uma situação de emergência,
+            <strong>
+                siga sempre as orientações das autoridades
+                competentes
             </strong>,
-            especialmente da Defesa Civil e dos serviços
-            oficiais de emergência.
+            incluindo a Defesa Civil e os serviços oficiais
+            de emergência.
         </p>
 
         <p>
             O Safe City
             <strong>
-                não substitui as orientações ou os serviços
+                não substitui os serviços ou orientações
                 das autoridades
-            </strong>
-            e deve ser considerado apenas uma ferramenta
-            complementar e de
-            <strong>última opção</strong>
-            para auxiliar na localização de possíveis abrigos.
+            </strong>.
+            Nesta versão de demonstração, ele deve ser
+            considerado apenas uma ferramenta complementar
+            e de <strong>última opção</strong>.
         </p>
 
         <p>
-            A versão atual utiliza dados de localização
-            de fontes externas e
-            <strong>
-                não representa uma base oficial da
-                Defesa Civil de Santa Catarina
-            </strong>.
+            A integração com uma base oficial de abrigos
+            e pontos de apoio deverá ocorrer somente após
+            a validação e autorização das entidades
+            responsáveis.
         </p>
 
     </section>
@@ -494,6 +509,12 @@
 <footer>
 
     🛡️ Safe City — Projeto de solidariedade e apoio à comunidade.
+
+    <br><br>
+
+    Projeto independente em desenvolvimento.
+    Não representa oficialmente a Defesa Civil,
+    órgãos públicos ou serviços de emergência.
 
 </footer>
 
@@ -526,12 +547,15 @@ function encontrarAbrigos() {
             const longitude =
                 position.coords.longitude;
 
+
             status.textContent =
-                "Localização encontrada. Abrindo mapa...";
+                "Abrindo uma pesquisa externa no Google Maps...";
 
 
             const mapa =
-                "https://www.google.com/maps/search/abrigos+pr%C3%B3ximos/@" +
+                "https://www.google.com/maps/search/" +
+                encodeURIComponent("abrigos pontos de apoio") +
+                "/@" +
                 latitude + "," +
                 longitude + ",14z";
 
@@ -576,5 +600,3 @@ function encontrarAbrigos() {
 </body>
 
 </html>
-
-
